@@ -1,80 +1,11 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.75.1" />
+---
+title: "Voter Interest Lower Among Young Voters in the 2019 Canadian Election"
+author: "Annie Collins"
+date: 2020-09-27T21:13:14-05:00
+categories: ["Assignments"]
+tags: ["R Markdown", "plot", "assignments"]
+---
 
-
-<title>Voter Interest Lower Among Young Voters in the 2019 Canadian Election - Annie&#39;s Website</title>
-<meta property="og:title" content="Voter Interest Lower Among Young Voters in the 2019 Canadian Election - Annie&#39;s Website">
-
-
-  <link href='../../../../favicon.ico' rel='icon' type='image/x-icon'/>
-
-
-
-  
-
-
-
-
-
-
-
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
-<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
-<link rel="stylesheet" href="../../../../css/main.css" media="all">
-
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <nav class="nav">
-  <a href="../../../../" class="nav-logo">
-    <img src="../../../../images/logo.png"
-         width="50"
-         height="50"
-         alt="Logo">
-  </a>
-
-  <ul class="nav-links">
-    
-    <li><a href="../../../../about/">About</a></li>
-    
-    <li><a href="../../../../post/">Assignment 1</a></li>
-    
-    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
-    
-    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
-    
-  </ul>
-</nav>
-
-      </header>
-
-
-<main class="content" role="main">
-
-  <article class="article">
-    
-    <span class="article-duration">6 min read</span>
-    
-
-    <h1 class="article-title">Voter Interest Lower Among Young Voters in the 2019 Canadian Election</h1>
-
-    
-    <span class="article-date">2020-09-27</span>
-    
-
-    <div class="article-content">
-      
 
 
 <div id="abstract" class="section level1">
@@ -105,11 +36,11 @@ ces_age$cps19_yob &lt;- c(1920:2001)
 ggplot(ces_age) + geom_point(aes(cps19_yob, avg)) + geom_smooth(aes(cps19_yob, avg), model=&quot;lm&quot;) + xlab(&quot;Year of Birth&quot;) + ylab(&quot;Average Response&quot;) + ggtitle(&quot;Average Response to \&quot;How interested are you in this federal election?\&quot;, CES 2019&quot;)
 ## Warning: Ignoring unknown parameters: model
 ## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/interest-1.png" width="672" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/interest-1.png" width="672" /></p>
 <pre class="r"><code>ggplot() + geom_bar(aes(ces2019_web$cps19_interest_elxn_1)) + xlab(&quot;Response&quot;) + ylab(&quot;Frequency&quot;) + ggtitle(&quot;Responses to \&quot;How interested are you in this federal election?\&quot;, CES 2019&quot;)</code></pre>
-<p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/dist%20interest-1.png" width="672" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/dist%20interest-1.png" width="672" /></p>
 <pre class="r"><code>ggplot(ces2019_web) + geom_bar(aes(cps19_yob), colour=&quot;white&quot;) + scale_x_discrete(breaks=c(1920, 1940, 1960, 1980, 2000), labels=c(1920, 1940, 1960, 1980, 2000)) + ggtitle(&quot;Year of Birth Distribution, CES 2019&quot;) + ylab(&quot;Frequency&quot;) + xlab(&quot;Year of Birth&quot;)</code></pre>
-<p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/dist%20yob-1.png" width="672" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/dist%20yob-1.png" width="672" /></p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
@@ -130,47 +61,3 @@ ggplot(ces_age) + geom_point(aes(cps19_yob, avg)) + geom_smooth(aes(cps19_yob, a
 <p>Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686,
 <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
 </div>
-
-    </div>
-  </article>
-
-  
-
-
-</main>
-
-      <footer class="footer">
-        <ul class="footer-links">
-          <li>
-            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
-          <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
-          </li>
-        </ul>
-      </footer>
-
-    </div>
-    
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-
-    
-<script src="../../../../js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
-    
-  </body>
-</html>
-
