@@ -19,7 +19,7 @@ This analysis was limited to the data available from the CES conducted online fo
 # Dataset
 The dataset in use for this project is the results of the online 2019 Canadian Election Study (CES). The CES is a survey of the Canadian population coinciding with each Canadian election year. It provides data on a variety of political and social topics, such as views of democracy, political interest, opinions of current leaders and parties, and topics of interest in the corresponding election cycle. In 2019, the CES was conducted via online and phone-based surveys. In this paper we will examine the data resulting from the online CES, specifically responses to the questions "In what year were you born?" and "How interested are you in this federal election?".
 
-```{r setup}
+```{r setup, include=FALSE}
 install.packages("tidyverse")
 library(tidyverse)
 install.packages("devtools")
