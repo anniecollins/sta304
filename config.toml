@@ -4,10 +4,10 @@ title = "Annie's Website"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmarkdown$", "_files$", "_cache$"]
 
 [permalinks]
-    post = "/content/post/2015-07-23-r-rmarkdown.Rmd"
+    post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
     name = "About"
