@@ -5,6 +5,7 @@ date: 2020-09-27T21:13:14-05:00
 categories: ["Assignments"]
 tags: ["R Markdown", "plot", "assignments"]
 ---
+Written by Annie Collins
 
 # Abstract
 Voter interest and engagement are crucial to the function of democracy. In this paper, I explore the results of the 2019 Canadian Election Study to gain insight into trends in voter interest in the 2019 election cycle. I find that the average stated interest in this election increased with age and was generally lower among young voters. These results may have strong implications for future voter engagement strategies and could act as indicators for future trends in the Canadian political landscape.
