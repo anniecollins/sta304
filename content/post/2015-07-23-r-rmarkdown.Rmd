@@ -57,6 +57,8 @@ This analysis of the CES only includes the online survey results and does not in
 In future, it may be worth examining the trends in age and interest across all available years of the CES to determine whether young voters within each election cycle tend to be less engaged, if there emerge any generational trends in interest levels, or if there exists any seasonality in interest levels within age groups.
 
 # References
+First-Time Electors - Youth, (n.d.) Elections Canada. Retrieved September 27, 2020 from https://www.elections.ca/content.aspx?section=res&dir=rec/part/yth&document=index&lang=e
+
 Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets a Little Easier.. R package version 0.1.0.
 
 Reasons for not voting in the federal election, October 21, 2019, (2020, February 26). Statistics Canada. Retrieved September 27, 2020, from https://www150.statcan.gc.ca/n1/daily-quotidien/200226/dq200226b-eng.htm
