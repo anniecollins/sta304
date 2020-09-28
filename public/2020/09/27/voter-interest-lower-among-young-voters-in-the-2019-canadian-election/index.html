@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">7 min read</span>
     
 
     <h1 class="article-title">Voter Interest Lower Among Young Voters in the 2019 Canadian Election</h1>
@@ -79,17 +79,17 @@
 
 <div id="abstract" class="section level1">
 <h1>Abstract</h1>
-<p>Voter interest and engagement is crucial to the function of democracy. In this paper, we explore the results of the 2019 Canadian Election Study to gain insight to the determinants of voter interest in the 2019 election cycle. We find that the average stated interest in this election increased with age and was generally lower amongst young (potentially first-time) voters. These results may have strong implications for future voter engagement strategies and could act as indicators for future trends in the Canadian political landscape.</p>
+<p>Voter interest and engagement are crucial to the function of democracy. In this paper, I explore the results of the 2019 Canadian Election Study to gain insight into trends in voter interest in the 2019 election cycle. I find that the average stated interest in this election increased with age and was generally lower amongst young voters. These results may have strong implications for future voter engagement strategies and could act as indicators for future trends in the Canadian political landscape.</p>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>The Canadian Election Study (CES) provides extensive and important insight into the mindsets of Canadian voters each election cycle. Youth engagement and first-time voters are often topics that arise in this context, and are important markers of civic engagement amongst Canada’s youth. In this paper, we observe that young voters (particularly those born after 1990) showed on average less interest in the 2019 election than their older counterparts, and that stated interest in the election appears to generally increase with age.</p>
-<p>For this analysis, I used the results of the 2019 CES to assess if any trends existed between year of birth and response to the survey question, “How interested are you in this federal election?”. Responses to this question take the form of a rank from 1 to 10, with 10 representing the highest possible level of interest. I then grouped the data by year of birth, calculated the average stated interest for each year and plotted these values in a scatter plot with a smoothing line to best observe any trends in the data. I also examined the distribution in each variable in the form of frequency histograms.</p>
-<p>This analysis was limited to the data available from the CES conducted online for the 2019 Canadian election. Responses to the CES conducted by phone were intentionally omitted, although may provide additional insight. This analysis is by no means exhaustive, and there exist several other datasets with which this work may be cross referenced, particularly past iterations of the CES for which it may be fruitful to compare these results.</p>
+<p>For this analysis, I used the results of the 2019 web CES to assess if any trends existed between year of birth and response to the survey question, “How interested are you in this federal election?”. Responses to this question take the form of a rank from 1 to 10, with 10 representing the highest possible level of interest. I then grouped the data by year of birth, calculated the average stated interest for each year and plotted these values in a scatter plot with a smoothing line to best observe any trends in the data. I also examined the distribution in each variable in the form of frequency histograms.</p>
+<p>This analysis was limited to the data available from the CES conducted online for the 2019 Canadian election. Responses to the CES conducted by phone were omitted, although may provide additional insight. This analysis is by no means exhaustive, and there exist several other datasets with which this work may be cross referenced, particularly past iterations of the CES for which it may be fruitful to compare these results.</p>
 </div>
 <div id="dataset" class="section level1">
 <h1>Dataset</h1>
-<p>The dataset in use for this project is the results of the online 2019 Canadian Election Study (CES). The CES is a survey of the Canadian population coinciding with each Canadian election year. It provides data on a variety of political and social topics, such as views of democracy, political interest, opinions of current leaders and parties, and topics of interest in the corresponding election cycle. In 2019, the CES was conducted via online and phone-based surveys. In this paper we will examine the data resulting from the online CES, specifically those</p>
+<p>The dataset in use for this project is the results of the online 2019 Canadian Election Study (CES). The CES is a survey of the Canadian population coinciding with each Canadian election year. It provides data on a variety of political and social topics, such as views of democracy, political interest, opinions of current leaders and parties, and topics of interest in the corresponding election cycle. In 2019, the CES was conducted via online and phone-based surveys. In this paper we will examine the data resulting from the online CES, specifically responses to the questions “In what year were you born?” and “How interested are you in this federal election?”.</p>
 <pre class="r"><code>get_ces(&quot;ces2019_web&quot;)
 ## TO CITE THIS SURVEY FILE:
 ## 
@@ -102,24 +102,28 @@ ces2019_web &lt;- ces2019_web[!(is.na(ces2019_web$cps19_interest_elxn_1)),]
 ces_age &lt;- summarise(group_by(ces2019_web, cps19_yob), avg=mean(cps19_interest_elxn_1))
 ## `summarise()` ungrouping output (override with `.groups` argument)
 ces_age$cps19_yob &lt;- c(1920:2001)
-ggplot(ces_age) + geom_point(aes(cps19_yob, avg)) + geom_smooth(aes(cps19_yob, avg), model=&quot;lm&quot;) + xlab(&quot;Year of Birth&quot;) + ylab(&quot;Average Response&quot;) + ggtitle(&quot;Average Response to \&quot;How interested are you in this federal election?\&quot;, CES 2019&quot;)
-## Warning: Ignoring unknown parameters: model
+ggplot(ces_age) + geom_point(aes(cps19_yob, avg)) + geom_smooth(aes(cps19_yob, avg)) + xlab(&quot;Year of Birth&quot;) + ylab(&quot;Average Response&quot;) + ggtitle(&quot;Average Response to \&quot;How interested are you in this federal election?\&quot;, CES 2019&quot;)
 ## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/interest-1.png" width="672" /></p>
-<pre class="r"><code>ggplot() + geom_bar(aes(ces2019_web$cps19_interest_elxn_1)) + xlab(&quot;Response&quot;) + ylab(&quot;Frequency&quot;) + ggtitle(&quot;Responses to \&quot;How interested are you in this federal election?\&quot;, CES 2019&quot;)</code></pre>
+<pre class="r"><code>summary(ces2019_web$cps19_interest_elxn_1)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   6.000   8.000   7.087   9.000  10.000
+ggplot() + geom_bar(aes(ces2019_web$cps19_interest_elxn_1)) + xlab(&quot;Response&quot;) + ylab(&quot;Frequency&quot;) + ggtitle(&quot;Responses to \&quot;How interested are you in this federal election?\&quot;, CES 2019&quot;)</code></pre>
 <p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/dist%20interest-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(ces2019_web) + geom_bar(aes(cps19_yob), colour=&quot;white&quot;) + scale_x_discrete(breaks=c(1920, 1940, 1960, 1980, 2000), labels=c(1920, 1940, 1960, 1980, 2000)) + ggtitle(&quot;Year of Birth Distribution, CES 2019&quot;) + ylab(&quot;Frequency&quot;) + xlab(&quot;Year of Birth&quot;)</code></pre>
+<pre class="r"><code>ces2019_web$cps19_yob &lt;- factor(ces2019_web$cps19_yob, labels=c(1920:2001))
+ggplot(ces2019_web) + geom_bar(aes(cps19_yob), colour=&quot;white&quot;) + scale_x_discrete(breaks=c(1920, 1940, 1960, 1980, 2000), labels=c(1920, 1940, 1960, 1980, 2000)) + ggtitle(&quot;Year of Birth Distribution, CES 2019&quot;) + ylab(&quot;Frequency&quot;) + xlab(&quot;Year of Birth&quot;)</code></pre>
 <p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/dist%20yob-1.png" width="672" /></p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>This data displays a clear downward trend in stated interest in the 2019 election based on age, with the average response of the youngest respondents approximately 1.5 points lower than that of respondents born around 1940. This matches a similar trend in voter turnout over the past three elections, wherein voters aged 18 to 24 and 25 to 34 have consistently represented the lowest two turnout rates of all age groups (as reported by Statistics Canada). The 2019 election (as with all elections) represented many young peoples’ first opportunity to vote, and a lack of exposure to the electoral process may serve as a deterrent to those less politically active.</p>
-<p>A lower interest towards the election is also reflected in young peoples’ lower number of responses to the CES (compared to those born between 1940 and 1990). It is possible that young people are less familiar with the CES and therefore less likely to respond, or could be better engaged through new and more popular platforms.</p>
+<p>This data displays a clear downward trend in stated interest in the 2019 election between the responses of those born in 1940 and those born in 2001, with the average response of the youngest respondents at approximately 1.5 points lower than that of respondents born around 1940 and approximately 0.5 points lower than that of respondents born in the 1960s on average. Observing the distribution of responses to the question, “How interested are you in this federal election?”, we see that the data exhibits a strong left skew with a median (8) almost a full point higher than the mean (7.087). This emphasizes younger generations’ relative lack of interest in the election, as the average responses to this question for those born after 1980 all fall below both the median and the mean.</p>
+<p>A lower interest towards the election is also reflected in young peoples’ lower number of responses to the CES (compared to those born between 1940 and 1990). It is possible that young people who are less interested in the election are also less likely to respond to the CES. It is also possible that this population is less familiar with the CES and therefore less likely to respond, or could be better engaged through new and more popular platforms. There were also relatively few respondents born between the years of 1920 and 1940 which may account for the high variance and lack of distinct trend in this data. For this reason (among others) this discussion focuses mainly on the trend in interest for those born after 1940.</p>
+<p>These results match a similar trend in voter turnout over the past three elections, wherein voters aged 18 to 24 and 25 to 34 have consistently represented the lowest two turnout rates of all age groups (as reported by Statistics Canada). The 2019 election (as with all elections) represented many young peoples’ first opportunity to vote, and a lack of exposure to the electoral process may have served as a deterrent to those less politically active.</p>
 </div>
 <div id="weaknesses-and-future-work" class="section level1">
 <h1>Weaknesses and Future Work</h1>
 <p>This analysis of the CES only includes the online survey results and does not include the phone survey results. It is possible that the distribution in the age of respondents would be impacted by the responses from the phone survey, and this may influence the strength of the trend in the data. As mentioned previously, there were also limited respondents to the online survey born between 1920 and 1940 which likely contributes to the high variance and lack of distinct pattern seen in the data for this age group. There were relatively fewer respondents born after 1990 compared to those born between 1950 and 1990. This may indicate a lack of engagement that matches the lower interest level observed in this age group, or may indicate a need to conduct further outreach to this age group in order to improve response rates for the next CES.</p>
-<p>In future, it may be worth examining the trends in age and interest across all available years of the CES to determine whether young voters within each election cycle tend to be less engaged, if there emerge any generational trends in interest levels, or if there exists any seasonality in interest levels within age groups.</p>
+<p>In future, it may be worth examining the trends in age and interest across all available years of the CES to determine whether young voters within each election cycle tend to be less engaged, if there emerge any generational trends in interest levels, or if there exists any seasonality or trends in interest levels within age groups.</p>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
