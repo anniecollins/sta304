@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Markdown on Annie&#39;s Website</title>
+    <link>/tags/r-markdown/</link>
+    <description>Recent content in R Markdown on Annie&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Sep 2020 21:13:14 -0500</lastBuildDate><atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Voter Interest Lower Among Young Voters in the 2019 Canadian Election</title>
+      <link>/2020/09/27/voter-interest-lower-among-young-voters-in-the-2019-canadian-election/</link>
+      <pubDate>Sun, 27 Sep 2020 21:13:14 -0500</pubDate>
+      
+      <guid>/2020/09/27/voter-interest-lower-among-young-voters-in-the-2019-canadian-election/</guid>
+      <description>Abstract Voter interest and engagement is crucial to the function of democracy. In this paper, we explore the results of the 2019 Canadian Election Study to gain insight to the determinants of voter interest in the 2019 election cycle. We find that the average stated interest in this election increased with age and was generally lower amongst young (potentially first-time) voters. These results may have strong implications for future voter engagement strategies and could act as indicators for future trends in the Canadian political landscape.</description>
+    </item>
+    
+  </channel>
+</rss>
